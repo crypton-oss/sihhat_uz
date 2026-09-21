@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sihhat_uz/features/splash/splash_screen.dart';
+import 'package:sihhat_uz/core/constants/supabase_constants.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Supabase initialization
+  await Supabase.initialize(
+    url: SupabaseConstants.url,
+    anonKey: SupabaseConstants.anonKey,
+  );
   
   // Navigatsiya va Status bar yashirish (Fullscreen mode)
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);

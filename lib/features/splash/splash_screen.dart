@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:sihhat_uz/features/auth/phone_input_screen.dart';
+import 'package:sihhat_uz/features/auth/language_selection_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -57,7 +57,7 @@ class _SplashScreenContentState extends State<_SplashScreenContent> {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const PhoneInputScreen(),
+        pageBuilder: (context, animation, secondaryAnimation) => const LanguageSelectionScreen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: animation, child: child);
         },

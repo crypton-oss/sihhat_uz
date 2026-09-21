@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.6%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.6%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 9%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.6%;
+    --radius: 0.5rem;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98.2%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 98.2%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 98.2%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 160 10% 98%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98.2%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 10%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@keyframes liquid-shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  20% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  80% { opacity: 0.5; }
+  100% { transform: translateX(100%) skewX(-15deg); opacity: 0; }
+}
+
+@keyframes liquid-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0px rgba(16, 185, 129, 0), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px 1px rgba(16, 185, 129, 0.15), 0 0 0 1.5px rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes liquid-pulse-light {
+  0%, 100% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.animate-liquid-shimmer {
+  animation: liquid-shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-liquid-pulse {
+  animation: liquid-pulse 2.5s ease-in-out infinite;
+}
+
+.animate-liquid-pulse-light {
+  animation: liquid-pulse-light 2.5s ease-in-out infinite;
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -4,6 +4,6 @@ import 'package:sihhat_uz/main.dart';
 void main() {
   testWidgets('Sihhat UZ basic test', (WidgetTester tester) async {
     await tester.pumpWidget(const SihhatApp());
-    expect(find.text('Sihhat UZ boshlanmoqda...'), findsOneWidget);
+    expect(find.test('Sihhat UZ boshlanmoqda...'), findsOneWidget);
   });
 }

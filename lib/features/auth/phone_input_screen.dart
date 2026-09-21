@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:sihhat_uz/core/localization/app_strings.dart';
 import 'package:sihhat_uz/features/auth/otp_verification_screen.dart';
 
 class PhoneInputScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
     _phoneController.addListener(() {
       setState(() {
         String text = maskFormatter.getUnmaskedText();
-        _isButtonActive = text.length >= 8; 
+        _isButtonActive = text.length == 9; 
       });
     });
   }
@@ -46,7 +47,10 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(LucideIcons.chevron_left, color: Colors.black),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -55,9 +59,9 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 10),
-              const Text(
-                'Telefon raqamingizni kiriting',
-                style: TextStyle(
+              Text(
+                AppStrings.get('phone_input_title'),
+                style: const TextStyle(
                   fontFamily: 'Satoshi',
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
@@ -67,7 +71,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
               ).animate().fade(duration: 400.ms).slideX(begin: -0.05),
               const SizedBox(height: 8),
               Text(
-                'Hisobingizni himoya qilish uchun raqamingiz kerak.',
+                AppStrings.get('phone_input_subtitle'),
                 style: TextStyle(
                   fontFamily: 'Satoshi',
                   fontSize: 14,
@@ -132,7 +136,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
               
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 24),
+                  padding: const EdgeInsets.only(bottom: 40), // Pasroq tushirildi
                   child: SizedBox(
                     width: 200,
                     height: 46,
@@ -153,7 +157,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                         foregroundColor: Colors.white,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12), // Sal qirraroq (Sharper)
+                          borderRadius: BorderRadius.circular(12),
                         ),
                         disabledBackgroundColor: const Color(0xFFF1F1F2),
                       ),
@@ -161,7 +165,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Davom etish',
+                            AppStrings.get('continue'),
                             style: TextStyle(
                               fontFamily: 'Satoshi',
                               fontSize: 14,
